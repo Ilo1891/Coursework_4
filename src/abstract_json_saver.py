@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class abstract_json_saver(ABC):
+class ABCJsonSaver(ABC):
 
     @abstractmethod
     def save_file(self, data: list):

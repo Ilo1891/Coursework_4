@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class abstract_get_api_hh(ABC):
+class ABCApiHH(ABC):
 
     @abstractmethod
     def __repr__(self):

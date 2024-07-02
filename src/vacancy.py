@@ -1,4 +1,4 @@
-from src.json_saver import abstract_json_saver
+
 
 class Vacancy:
     list_vacancies = []
@@ -24,10 +24,6 @@ class Vacancy:
 
     @classmethod
     def get_vacancy_list(cls, list_vacancy, city, salary_from) -> list:
-        """
-        Get list with vacancies dicts. This list with copy of class Vacancy
-        :return: new lisrt with copy of class Vacancy
-        """
         for vacancy in list_vacancy:
             name_vacancy = vacancy["name"]
             url = vacancy["alternate_url"]

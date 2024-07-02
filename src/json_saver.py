@@ -1,18 +1,18 @@
 import json
 
 from config import DATA
-from src.abstract_json_saver import abstract_json_saver
+from src.abstract_json_saver import ABCJsonSaver
 
 
-class JsonSaver(abstract_json_saver):
+class JsonSaver(ABCJsonSaver):
 
     def save_file(self, data: list):
-        """Save file"""
+        """Сохраняем фаил"""
         with open(DATA, 'w', encoding='utf-8') as file:
             file.write(json.dumps(data, indent=2, ensure_ascii=False))
 
     def read_file(self):
-        """Read file"""
+        """Читаем фаил"""
         with open(DATA, encoding='utf-8') as file:
             return json.load(file)
 

@@ -1,8 +1,9 @@
-from src.get_api_hh import get_api_hh
-from src.json_saver import abstract_json_saver
-from src.vacancy import abstract_json_saver
+from src.get_api_hh import HHApi
+from src.json_saver import JsonSaver
+from src.vacancy import Vacancy
 
-response = get_api_hh()
+response = HHApi()
+file_json = JsonSaver()
 
 while True:
     user_vacancy: str = input("Text name vacancy for search:\n")
@@ -17,18 +18,16 @@ while True:
         break
     print(f"Please, text digit, not {user_salary}")
 
-# Get vacancies for user
+# Получаем вакансии
 response.get_vacancy_from_api(user_vacancy)
 
-file_json = abstract_json_saver()
-
-# Save response to JSON
+# Сохраняем в фаиле JSON
 file_json.save_file(response.all_vacancy)
 
-# Read JSON file
+# Открываем фаил JSON
 file_vacancies = file_json.read_file()
 
-# Print vacancies for user
+# Показываем вакансии для пользователя
 vacancy = Vacancy.get_vacancy_list(file_vacancies, user_city, int(user_salary))
 sorted_vacancies = sorted(vacancy)
 
